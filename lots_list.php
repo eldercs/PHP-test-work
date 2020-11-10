@@ -1,6 +1,6 @@
 <?php
 $my_array = ["Доски и лыжи", "Крепления", "Ботинки","Одежда","Инструменты","Разное"];
-$table_array = [
+/* $table_array = [
     [
         'title' => '2014 Rossignol District Showboard',
         'category' => 'Доски и лыжи',
@@ -38,12 +38,20 @@ $table_array = [
         'price_now' => null
     ],
     [
-        'title' => 'Маска Oakley Canypy',
-        'category' => 'Разное',
-        'price' => '5400',
+        'title' => 'Куртка для сноуборда DC Mutiny Charocal',
+        'category' => 'Одежда',
+        'price' => '10999',
         'image' => 'img/lot-5.jpg',
         'description' => 'описание отсутствует',
         'price_now' => null
+    ],
+    [
+        'title' => 'Маска Oakley Canypy',
+        'category' => 'Разное',
+        'price' => '5400',
+        'image' => 'img/lot-6.jpg',
+        'description' => 'описание отсутствует',
+        'price_now' => null
     ]
-    ];
+    ]; */
 ?>

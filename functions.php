@@ -6,10 +6,47 @@ if(file_exists($adress)){
     extract($arr, EXTR_REFS);
     //require_once($adress);
     ob_start();
-    require_once($adress);
+    include $adress; 
     $adress_buffer = ob_get_clean();
 }
 return $adress_buffer;
+}
+function redirectTo($path="/"){
+    header("Location:{$path}");
+    exit();
+}
+function searchUserByEmail($email, $users){
+    $result = null;
+    foreach($users as $user){
+        if($user['email']==$email){
+            $result = $user;
+        break;
+        }
+    }
+    return $result;
+}
+
+
+
+function fetchOne($con, $sql) {
+    if ($result = mysqli_query($con, $sql)) {
+        return mysqli_fetch_array($result, MYSQLI_ASSOC);
+    } else {
+        throw new Exception(mysqli_error($con));
+    }
+}
+function fetchAll($con, $sql) {
+    if ($result = mysqli_query($con, $sql)) {
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        throw new Exception(mysqli_error($con));
+    }
+}
+
+function renderErrorTemplate($error, $username) {
+print("такой email уже есть");
+  //  echo $layout_content;
+    exit();
 }
 function nowtotime(){
     date_default_timezone_set('Europe/Moscow');
@@ -20,4 +57,5 @@ function nowtotime(){
     $format2 = floor((($ts_midnight - $now_time)%3600)/60);
     return $format . " часа " . $format2 . " минут";
 }
+
 ?>

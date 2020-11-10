@@ -31,10 +31,10 @@
     foreach($table_array as $key => $val): ?>
      <li class="lots__item lot">
         <div class="lot__image">
-            <img src="<?= $val['image'];?>" width="350" height="260" alt="Сноуборд">
+            <img src="<?= $val['img'];?>" width="350" height="260" alt="Сноуборд">
         </div>
         <div class="lot__info">
-            <span class="lot__category"><?= $val['category'];?></span>
+            <span class="lot__category"><?= $val['title'];?></span>
             <h3 class="lot__title"><a class="text-link" href="lot.php?key=<?=$key; ?>"><?= $val['title'];?></a></h3>
             <div class="lot__state">
                 <div class="lot__rate">

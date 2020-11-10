@@ -1,8 +1,13 @@
 <?php
 require_once 'functions.php';
 require_once 'lots_list.php';
+require_once 'username.php';
 $add_lots = ['name' => '', 'category' => '' , 'description' => 'Описание', 'price' => '0', 'img'=>'png'];
 $errors = [];
+if($username == null){
+    header("Location: /login.php");
+    exit();
+}
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $requared = ['name', 'category', 'description', 'end_date'];
@@ -65,9 +70,7 @@ $page_content = shablon(
       'table_array' => $table_array,
       'add_lots' => $add_lots,
       'errors' => $errors,
-      'my_array' => $my_array
-        //'lot_time_remaining' => $lot_time_remaining
-        
+      //'my_array' => $my_array
     ]
 );
 echo shablon(
@@ -75,7 +78,8 @@ echo shablon(
     [
         'my_array' => $my_array,
         'page_content' =>  $page_content, 
-        'title' => 'Добавление лота'
+        'title' => 'Добавление лота',
+        'username' => $username,
     ]
 );
 ?>

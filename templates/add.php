@@ -22,20 +22,18 @@
       </li>
     </ul>
   </nav>
+
 <form class="form form--add-lot container form--invalid" action="add.php" method="post"enctype="multipart/form-data"> <!-- form--invalid -->
   <?php if(isset($errors)): ?>
-  <div class = "form__errors">
-  <p>Исправьте ошибки</p>
-  </div>
   <?php endif; ?>
   <?php
-  $name = $_POST[$add_lots['name']] ?? '';
+   //$name = $_POST[$add_lots['name']] ?? '';
    ?>
     <h2>Добавление лота</h2>
     <div class="form__container-two">
       <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
         <label for="lot-name">Наименование</label>
-        <input id="lot-name" type="text" name="name" placeholder="Введите наименование лота" value="<?= isset($add_lots['name'])? $add_lots['name'] : ''; ?>">
+        <input id="lot-name" type="text" name="name" placeholder="Введите наименование лота" value="<?= isset($_POST['name'])? $_POST['name'] : ''; ?>">
          <span class="form__error"><?=isset($errors['name'])? $errors['name'] : "";?></span>
       </div>
       <div class="form__item">
@@ -53,14 +51,14 @@
     </div>
     <div class="form__item form__item--wide">
       <label for="message">Описание</label>
-      <textarea id="message" name="description" placeholder="Напишите описание лота" ><?= isset($add_lots['description'])? $add_lots['description'] : ''; ?></textarea>
+      <textarea id="message" name="description" placeholder="Напишите описание лота" ><?= isset($_POST['description'])? $_POST['description'] : ''; ?></textarea>
       <span class="form__error2"><?=isset($errors['description'])? $errors['description'] : "";?></span>
     </div>
     <div class="form__item form__item--file"> <!-- form__item--uploaded -->
       <label>Изображение</label>
       <div class="preview">
         <button class="preview__remove" type="button">x</button>
-        <div class="preview__img">
+        <div class="preview__img">  
           <img src="img/avatar.jpg" width="113" height="113" alt="Изображение лота">
         </div>
       </div>
@@ -75,17 +73,17 @@
     <div class="form__container-three">
       <div class="form__item form__item--small">
         <label for="lot-rate">Начальная цена</label>
-        <input id="lot-rate" type="number" name="price" placeholder="0" value = "<?= isset($add_lots['price']) ? $add_lots['price'] : ''; ?>" >
+        <input id="lot-rate" type="number" name="price" placeholder="0" value = "<?= isset($_POST['price']) ? $_POST['price'] : ''; ?>" >
         <span class="form__error2"><?=isset($errors['price'])? $errors['price'] : "";?></span>
       </div>
       <div class="form__item form__item--small">
         <label for="lot-step">Шаг ставки</label>
-        <input id="lot-step" type="number" name="lot-step" placeholder="0" value = "<?= isset($add_lots['lot-step']) ? $add_lots['lot-step'] : ''; ?>">
+        <input id="lot-step" type="number" name="lot-step" placeholder="0" value = "<?= isset($_POST['lot-step']) ? $_POST['lot-step'] : ''; ?>">
         <span class="form__error2"><?=isset($errors['lot-step'])? $errors['lot-step'] : "";?></span>
       </div>
       <div class="form__item">
         <label for="lot-date">Дата окончания торгов</label>
-        <input class="form__input-date" id="lot-date" type="date" name="end_date" value = "<?=isset($gif['end_date'])? $gif['end_date'] : '';?>">
+        <input class="form__input-date" id="lot-date" type="date" name="end_date" value = "<?=isset($_POST['end_date'])? $_POST['end_date'] : '';?>">
         <span class="form__error2"><?=isset($errors['end_date'])? $errors['end_date'] : "";?></span>
       </div>
     </div>
