@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_report(MYSQLI_REPORT_STRICT);
         $emailExists = mysqli_query($con, "SELECT `id` FROM `users` WHERE `email` = '$email'");
         if (mysqli_num_rows($emailExists) > 0) {
-            $errors['email'] = 'Такой E-mail уже существует';
+            $errors['email'] = 'Такой E-mail уже существует2';
         } else {
             $passwordHash = password_hash($gif['password'], PASSWORD_DEFAULT);
             try {

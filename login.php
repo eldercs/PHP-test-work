@@ -5,6 +5,11 @@ require_once 'userdata.php';
 require_once 'username.php';
 require_once "init.php";
 //session_start();
+try {
+    $my_array = fetchAll($con, 'SELECT * FROM `category`');
+} catch (Exception $e) {
+    renderErrorTemplate($e->getMessage(), $username);
+}
 
 $add_lots = ['email' => '', 'password' => ''];
 $errors = [];
@@ -41,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 else{
-        $page_content = shablon('index.php', ['table_array' => $table_array,]);
+        $page_content = shablon('index.php', ['my_array' => $my_array,]);
 }
  $page_content = shablon(
     'login',

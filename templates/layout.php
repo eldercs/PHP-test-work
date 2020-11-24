@@ -14,7 +14,7 @@
         <a class="main-header__logo"  href="index.php">
             <img src="img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
         </a>
-        <form class="main-header__search" method="get" action="https://echo.htmlacademy.ru">
+        <form class="main-header__search" method="get" action="search.php">
             <input type="search" name="search" placeholder="Поиск лота">
             <input class="main-header__search-btn" type="submit" name="find" value="Найти">
         </form>
@@ -48,12 +48,10 @@
     <nav class="nav">
         <ul class="nav__list container">
         <?php
-        $index = 0;
-        $num =  count($my_array);
-        while($index < $num){
-            $cat = $my_array[$index];
-            print('<li class = "nav__item"><a href = "all-lots.html">' . $cat . '</a></li>' );
-            $index++;
+    
+        foreach($my_array as $key => $val){
+      
+            print('<li class = "nav__item"><a href = "all-lots.html">' . $val['title']. '</a></li>' );
         }
            /*  <li class="nav__item">
                 <a href="all-lots.html">Доски и лыжи</a>

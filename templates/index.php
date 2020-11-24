@@ -49,4 +49,9 @@
     </li>  
    <?php endforeach ?>
 </ul>
+<?=shablon('pager', [
+        'pages' => $pages,
+        'pages_count' => $pages_count,
+        'cur_page' => $cur_page
+    ]); ?>
 </section>

@@ -42,7 +42,7 @@
           <option value = "">Выберите категорию</option>
        <?php 
        foreach($my_array as $key) : ?>
-        <option name = "category" value="<?=$key; ?>"><?=$key;?></option>
+        <option name = "category" value="<?=$key['id']; ?>"><?=$key['title'];?></option>
         <?php endforeach; ?>
         </select>
         <span class="form__error2"><?=isset($errors['category'])? $errors['category'] : "";?></span>
@@ -78,8 +78,8 @@
       </div>
       <div class="form__item form__item--small">
         <label for="lot-step">Шаг ставки</label>
-        <input id="lot-step" type="number" name="lot-step" placeholder="0" value = "<?= isset($_POST['lot-step']) ? $_POST['lot-step'] : ''; ?>">
-        <span class="form__error2"><?=isset($errors['lot-step'])? $errors['lot-step'] : "";?></span>
+        <input id="lot-step" type="number" name="bet_step" placeholder="0" value = "<?= isset($_POST['bet_step']) ? $_POST['bet_step'] : ''; ?>">
+        <span class="form__error2"><?=isset($errors['bet_step'])? $errors['bet_step'] : "";?></span>
       </div>
       <div class="form__item">
         <label for="lot-date">Дата окончания торгов</label>

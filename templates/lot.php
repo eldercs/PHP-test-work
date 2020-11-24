@@ -53,10 +53,16 @@
             <button type="submit" class="button">Сделать ставку</button>
           </form>
         </div>
+
         <div class="history">
-          <h3>История ставок (<span>10</span>)</h3>
+          <h3>История ставок (<span><?= count($bets) ?></span>)</h3>
           <table class="history__list">
+          <?php foreach($bets as $bet): ?> 
             <tr class="history__item">
+              <td class="history__name"><?= $bet['name']; ?></td>
+              <td class="history__price"><?=$bet['value']; ?></td>
+              <td class="history__time"><?= $bet['date']; ?></td>
+           <!--  <tr class="history__item">
               <td class="history__name">Иван</td>
               <td class="history__price">10 999 р</td>
               <td class="history__time">5 минут назад</td>
@@ -104,10 +110,12 @@
             <tr class="history__item">
               <td class="history__name">Илья</td>
               <td class="history__price">10 999 р</td>
-              <td class="history__time">19.03.17 в 10:20</td>
+              <td class="history__time">19.03.17 в 10:20</td> -->
             </tr>
+            <?php endforeach ?>
           </table>
         </div>
+
       </div>
     </div>
   </section>
